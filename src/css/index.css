@@ -1,0 +1,83 @@
+body{
+    text-align: center;
+}
+#hangMan{
+    width:30vw;
+    height:30vw;
+    background-color: skyblue;
+    margin:0 auto;
+    position:relative;
+}
+#hanger{
+    height:28vw;
+    width:auto;
+    position:absolute;
+    left:4vw;
+    display:none;
+}
+#rope{
+    height:3vw;
+    width:3vw;
+    position:absolute;
+    left:15vw;
+    top:2.5vh;
+    display:none;
+}
+#face, #body, #larm, #rarm, #lleg, #rleg{
+    height:7vw;
+    width:auto;
+    position:absolute;
+    display:none;
+}
+#face{
+    left:14vw;
+    top:3vw;
+}
+#body{
+    left:15.5vw;
+    top:8vw;
+}
+#larm{
+    left:12vw;
+    top:7vw;
+}
+#rarm{
+    left:15vw;
+    top:7vw;
+}
+#lleg{
+    left:13.5vw;
+    top:12vw;
+}
+#rleg{
+    left:15vw;
+    top:12vw;
+}
+
+#underlines{
+    display:flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 3vh auto;
+}
+.underline{
+    display:flex;
+    width:5vw;
+    height:30px;
+    border-bottom: 5px red solid;
+    margin-right:5px;
+    justify-content: center;
+}
+#alphabets{
+    display:flex;
+    flex-direction: row;
+}
+.alphabet{
+    width:5vw;
+    height:5vw;
+    border: 1px solid black;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+}
