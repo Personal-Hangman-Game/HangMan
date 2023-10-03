@@ -7,8 +7,23 @@
     <link  rel= "stylesheet" href="./src/css/index.css">
 </head>
 <body>
-    <h1>HangMan</h1>
-    <button id="startButton">Start!</button>
+    <audio loop autoplay id="music">
+        <source src="./src/audio/Adventure.mp3" type="audio/mp3">
+    </audio>
+    <div id="startPage">
+        <img src="./src/img/play-button.png" id="playMusic">
+        <h1 id="gameTitle">
+            <span style="--i:1">H</span>
+            <span style="--i:2">A</span>
+            <span style="--i:3">N</span>
+            <span style="--i:4">G</span>
+            <span style="--i:5">M</span>
+            <span style="--i:6">A</span>
+            <span style="--i:7">N</span>
+        </h1>
+        <button id="startButton">Start!</button>
+    </div>
+    
     <div id="hangedMan">
         <div id="hangMan">
             <img id="hanger" src="./src/img/hang.png">

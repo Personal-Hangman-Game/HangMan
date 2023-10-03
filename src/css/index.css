@@ -1,5 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
 body{
     text-align: center;
+    position:relative;
+    margin:0;
+}
+#playMusic{
+    position:absolute;
+    width:2vw;
+    top:0;
+    left:0;
+}
+#startPage{
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    z-index:10;
+    background-color:#D4F0F7;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#gameTitle{
+    font-size: 100px;
+    font-family: 'Bangers', cursive;
+    animation: 2s rightToLeft ease-out 1;   
+}
+#gameTitle span{
+    position:relative;
+    display: inline-block;
+    animation: 1s waivy infinite;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes rightToLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(80%);
+  }
+  20% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes waivy {
+    10%,40%,100% {
+      transform: translateY(0)
+    }
+    20% {
+      transform: translateY(-20px)
+    }
+  }
+
+#startButton{
+    text-transform: uppercase;
+    background-image: linear-gradient(
+         -225deg,
+        #231557 0%,
+        #44107a 29%,
+        #ff1361 67%,
+        #fff800 100%
+    );
+    color:white;
+    border-radius: 10px;
+    cursor:pointer;
+}
+#startButton:hover{
+    box-shadow: 5px 7px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 5px 7px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 5px 7px 5px 0px rgba(0,0,0,0.75);
 }
 #hangMan{
     width:30vw;

@@ -11,10 +11,14 @@ $("#startButton").addEventListener("click",()=>{
         $("#underlines").insertAdjacentHTML("beforeend",
         `<span class="underline"></span>`)
     }
+    $("#startPage").style.display = "none";
     $("#startButton").style.display = "none";
     hangmanGame();
 })
 
+$("#playMusic").addEventListener("click",()=>{
+    $("#music").play()
+})
 function hangmanGame(){
     //클릭하면 다시 클릭 못하게 하기 & 맞는지 확인해 주기
     document.querySelectorAll(".alphabet").forEach(item =>{
