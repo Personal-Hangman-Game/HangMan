@@ -41,21 +41,36 @@ function hangmanGame(){
         }
     }
     
+    const rightSound = new Audio('../../src/audio/RightSound.mp3');
+    const wrongSound = new Audio('../../src/audio/WrongSound.mp3');
+    const winSound = new Audio('../../src/audio/WinSound.wav');
+    const loseSound = new Audio('../../src/audio/LoseSound.mp3');
     //맞는지 확인해주는 함수
     function checkAnswer(character){
         console.log(character);
         if (word.includes(character)){
+            rightSound.play();
             showAlphabet(character);
             numOfRight++;
             console.log("Right");
             //다 맞추면 나타나는 함수
             console.log(numOfRight);
             if (word.length == numOfRight){
-                document.write("WIN!");
+                setTimeout(() => {
+                    $("#music").src = "";
+                    winSound.play();
+                    $("#endScreen").style.display = "flex";
+                    $("#endComment").innerText = "WIN";
+                    $("#endExplanation").innerText = `The Answer was ${word}`;
+                    $("#tryAgainBtn").addEventListener("click",()=>{
+                        location.reload();
+                    })
+                  }, 1000);
                 return;
             }
 
         } else{
+            wrongSound.play();
             let num = $('#numOfWrong').innerText;
             num = Number(num)+1;
             if (num < 8){
@@ -75,6 +90,9 @@ function hangmanGame(){
                     return;
                 case 4:
                     $("#body").style.display = "block";
+                    $("#face").src = '../../src/img/intermediateFace.png'
+                    $("#face").style.height = "6vw";
+                    $("#face").style.top = "6vh";
                     return;
                 case 5:
                     $("#larm").style.display = "block";
@@ -84,13 +102,23 @@ function hangmanGame(){
                     return;
                 case 7:
                     $("#lleg").style.display = "block";
+                    $("#face").src = '../../src/img/EndFace.png'
+                    $("#face").style.height = "6vw";
+                    $("#face").style.top = "6vh";
                     return;
                 case 8:
                     //8번 틀리면 나타나는 함수
                     $("#rleg").style.display = "block";
                     setTimeout(() => {
-                        document.write(`GAME OVER\
-                                        Answer Was: ${word}`);
+                        $("#music").src = "";
+                        loseSound.play();
+                        $("#endScreen").style.display = "flex";
+                        $("#endComment").innerText = "LOSE";
+                        $("#endExplanation").innerText = `The Answer was ${word}`;
+                        $("#tryAgainBtn").addEventListener("click",()=>{
+                            location.reload();
+                        })
+
                       }, 1000);
                     return;
             }

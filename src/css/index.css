@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Pixelify+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 body{
     text-align: center;
     position:relative;
     margin:0;
+    background-color: #aaaaaa;
 }
 #playMusic{
     position:absolute;
@@ -15,7 +18,7 @@ body{
     width:100vw;
     height:100vh;
     z-index:10;
-    background-color:#D4F0F7;
+    background-color:#aaaaaa;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -77,12 +80,35 @@ body{
 -webkit-box-shadow: 5px 7px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 5px 7px 5px 0px rgba(0,0,0,0.75);
 }
+#playGameScreen{
+    display:grid;
+    grid-template-areas: "a b";
+}
+#hangedMan{
+    grid-area:"a";
+    margin-top: 10vh;
+}
+#hangedMan p{
+    font-family: 'Bangers', cursive;
+    font-family: 'Pixelify Sans', cursive;
+
+}
+#words{
+    grid-area:"b";
+    margin-top: 10vh;
+}
 #hangMan{
     width:30vw;
     height:30vw;
-    background-color: skyblue;
+    border-radius: 10px;
+    border:rgba(32, 51, 84,0.8)solid 15px;
+    background-color: #808080;
     margin:0 auto;
     position:relative;
+    background-image: url(../img/bgHill.png);
+    background-repeat: no-repeat;
+    background-size: 30vw 15vw;
+    background-position: 5% 120%;
 }
 #hanger{
     height:28vw;
@@ -108,52 +134,116 @@ body{
 #face{
     left:14vw;
     top:3vw;
+    animation:faceMove 2s infinite alternate;
+    transform-origin: center;
 }
+@keyframes faceMove {
+    from {transform: rotate(-20deg);}
+    to {transform: rotate(20deg);}
+  }
 #body{
     left:15.5vw;
     top:8vw;
 }
 #larm{
-    left:12vw;
+    left:11.5vw;
     top:7vw;
+    animation:larmMove 2s infinite alternate;
+    transform-origin: 75% 25%;
 }
+@keyframes larmMove {
+    from {transform: rotate(45deg);}
+    to {transform: rotate(-25deg);}
+  }
 #rarm{
     left:15vw;
     top:7vw;
+    animation:rarmMove 2s infinite alternate;
+    transform-origin: 25% 25%;
 }
+@keyframes rarmMove {
+    from {transform: rotate(-50deg);}
+    to {transform: rotate(10deg);}
+  }
 #lleg{
     left:13.5vw;
-    top:12vw;
+    top:12.8vw;
+    animation:llegMove 2s infinite alternate;
+    transform-origin: 75% 25%;
 }
+@keyframes llegMove {
+    from {transform: rotate(-10deg);}
+    to {transform: rotate(0deg);}
+  }
 #rleg{
     left:15vw;
-    top:12vw;
+    top:12.8vw;
 }
-
+#numOfWrong, #numOfChance{
+    font-family:Arial, Helvetica, sans-serif;
+}
 #underlines{
     display:flex;
     align-items: flex-end;
     justify-content: center;
+    font-size: 20px;
+    font-weight: 900;
     margin: 3vh auto;
 }
 .underline{
     display:flex;
     width:5vw;
     height:30px;
-    border-bottom: 5px red solid;
+    border-bottom: 5px #203354 solid;
     margin-right:5px;
     justify-content: center;
 }
 #alphabets{
     display:flex;
+    width:40vw;
+    margin: 0 auto;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .alphabet{
     width:5vw;
     height:5vw;
-    border: 1px solid black;
+    border: 5px solid rgba(0,0,0,0.5);
+    border-radius:5px;
+    margin: 5px 5px;
     display:flex;
     align-items: center;
     justify-content: center;
     cursor:pointer;
+}
+#endScreen{
+    position:absolute;
+    width:100vw;
+    height:100vh;
+    z-index:12;
+    top:0;
+    right:0;
+    background-color:rgba(0,0,0,0.8);
+    display:none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#endingCard{
+    background-color:white;
+    border-radius: 15px;
+    z-index:13;
+    width:50vw;
+    height:50vh;
+}
+#endComment{
+    font-family: 'Anton', sans-serif;
+    font-size:50px;
+    margin:50px 0;
+}
+#tryAgainBtn:hover{
+    box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,0.75);
 }
