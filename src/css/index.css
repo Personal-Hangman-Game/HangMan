@@ -80,6 +80,16 @@ body{
 -webkit-box-shadow: 5px 7px 5px 0px rgba(0,0,0,0.75);
 -moz-box-shadow: 5px 7px 5px 0px rgba(0,0,0,0.75);
 }
+#choices{
+    display:none;
+}
+#choices span{
+    margin: 0 30px;
+    cursor: pointer;
+}
+#choices span:hover{
+    text-decoration: underline;
+}
 #playGameScreen{
     display:grid;
     grid-template-areas: "a b";

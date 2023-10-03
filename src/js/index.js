@@ -1,20 +1,37 @@
 import {$} from './utility.js';
 import data from '../json/words.json' assert { type: 'json' };
 
-let word = data[0].Words[Math.floor(Math.random()*30)];
+const arr = [];
+while(arr.length < 3){
+    let r = Math.floor(Math.random() * 30);
+    if(arr.indexOf(r) === -1) arr.push(r);
+}
+const choice1 = data[0].Words[arr[0]].toUpperCase();
+const choice2 = data[0].Words[arr[1]].toUpperCase();
+const choice3 = data[0].Words[arr[2]].toUpperCase();
+
+$("#choice1").innerText = choice1;
+$("#choice2").innerText = choice2;
+$("#choice3").innerText = choice3;
+
+let word = "";
 let numOfRight = 0;
-word = word.toUpperCase();
-console.log(word);
 
 $("#startButton").addEventListener("click",()=>{
-    for (let i =0; i<word.length; i++){
-        $("#underlines").insertAdjacentHTML("beforeend",
-        `<span class="underline"></span>`)
-    }
-    $("#startPage").style.display = "none";
     $("#startButton").style.display = "none";
-    hangmanGame();
-})
+    $("#choices").style.display = "block";
+    $("#choices").addEventListener("click",(e)=>{
+        word = e.target.innerText;
+        console.log(word);
+        for (let i =0; i<word.length; i++){
+            $("#underlines").insertAdjacentHTML("beforeend",
+            `<span class="underline"></span>`)
+        }
+        $("#startPage").style.display = "none";
+        hangmanGame();
+    })
+    })
+    
 
 $("#playMusic").addEventListener("click",()=>{
     $("#music").play()
@@ -25,7 +42,11 @@ function hangmanGame(){
         item.addEventListener('click', (e)=>{
             e.target.closest('div').style.backgroundColor = "gray";
             e.target.closest('div').style.pointerEvents = "none";
-            checkAnswer(e.target.innerText)
+            let check = checkAnswer(e.target.innerText);
+            if (!check) e.target.closest('div').style.color = 'red';
+
+            //이게 조건 6번이긴 한데 근데 솔직히 이런 기능이 없는 게 나은 것 같다.
+            else e.target.closest('div').remove();
         })
     })
 
@@ -35,8 +56,9 @@ function hangmanGame(){
         const wordUnderlines = document.querySelectorAll(".underline");
         wordUnderlines[index].innerText = char;
         index = word.indexOf(char,index+1);
-        while (index>-1 && index<word.length-1){
+        while (index>-1 && index<=word.length-1){
             wordUnderlines[index].innerText = char;
+            numOfRight++;
             index = word.indexOf(char,index+1);
         }
     }
@@ -53,6 +75,8 @@ function hangmanGame(){
             showAlphabet(character);
             numOfRight++;
             console.log("Right");
+            console.log(numOfRight);
+            console.log(word.length);
             //다 맞추면 나타나는 함수
             console.log(numOfRight);
             if (word.length == numOfRight){
@@ -66,8 +90,9 @@ function hangmanGame(){
                         location.reload();
                     })
                   }, 1000);
-                return;
+                return true;
             }
+            return true;
 
         } else{
             wrongSound.play();
@@ -122,6 +147,7 @@ function hangmanGame(){
                       }, 1000);
                     return;
             }
+            return false;
         }
     }
 
