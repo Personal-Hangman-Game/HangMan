@@ -88,6 +88,10 @@ O는 나오지 않고 행맨 그림이 1획 그려진다. 이렇게 계속 하�
 <br><br>
 
 ---
+### 배포 링크     
+https://personal-hangman-game.github.io/HangMan/
+
+---
 ### Audio File 출처    
 
 **Game BGM: "엉뚱발랄 모험"**     
