@@ -1,7 +1,7 @@
 # HangMan
 
-### HangMan Game For Hanghaeplus-Coyukdae   
-항해 플러스: 제1회 코육대 - 행맨 게임 부문
+### HangMan Game For Hanghaeplus-Coyukdae     
+항해 플러스: 제1회 코육대 - 행맨 게임 부문     
 ![image](https://github.com/quothraven1122/HangMan/assets/102286920/4931256f-8a85-4dd4-9bba-db056d00c7aa)    
 
 <br>
