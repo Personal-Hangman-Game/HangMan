@@ -63,10 +63,10 @@ function hangmanGame(){
         }
     }
     
-    const rightSound = new Audio('../../src/audio/RightSound.mp3');
-    const wrongSound = new Audio('../../src/audio/WrongSound.mp3');
-    const winSound = new Audio('../../src/audio/WinSound.wav');
-    const loseSound = new Audio('../../src/audio/LoseSound.mp3');
+    const rightSound = new Audio('./src/audio/RightSound.mp3');
+    const wrongSound = new Audio('./src/audio/WrongSound.mp3');
+    const winSound = new Audio('./src/audio/WinSound.wav');
+    const loseSound = new Audio('./src/audio/LoseSound.mp3');
     //맞는지 확인해주는 함수
     function checkAnswer(character){
         console.log(character);
@@ -115,7 +115,7 @@ function hangmanGame(){
                     return;
                 case 4:
                     $("#body").style.display = "block";
-                    $("#face").src = '../../src/img/intermediateFace.png'
+                    $("#face").src = './src/img/intermediateFace.png'
                     $("#face").style.height = "6vw";
                     $("#face").style.top = "6vh";
                     return;
@@ -127,7 +127,7 @@ function hangmanGame(){
                     return;
                 case 7:
                     $("#lleg").style.display = "block";
-                    $("#face").src = '../../src/img/EndFace.png'
+                    $("#face").src = './src/img/EndFace.png'
                     $("#face").style.height = "6vw";
                     $("#face").style.top = "6vh";
                     return;
