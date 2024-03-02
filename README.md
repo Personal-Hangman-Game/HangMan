@@ -1,6 +1,8 @@
 # HangMan
 
-### HangMan Game For Hanghaeplus-Coyukdae   
+
+### HangMan Game For Hanghaeplus-Coyukdae     
+
 항해 플러스: 제1회 코육대 - 행맨 게임 부문     
 ![image](https://github.com/quothraven1122/HangMan/assets/102286920/4931256f-8a85-4dd4-9bba-db056d00c7aa)    
 
@@ -88,6 +90,10 @@ O는 나오지 않고 행맨 그림이 1획 그려진다. 이렇게 계속 하�
 <br><br>
 
 ---
+
+### 배포 링크     
+https://personal-hangman-game.github.io/HangMan/
+
 ### Audio File 출처    
 
 **Game BGM: "엉뚱발랄 모험"**     
